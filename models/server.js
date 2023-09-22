@@ -9,7 +9,7 @@ class Server{
     constructor(){
         this.app = express()
         this.port = process.env.PORT //capturando variables
-        this.productoPath = '/api/producto' //Ruta Pública esta es la ruta que el usuari ve en el navegador
+        this.clientePath = '/api/cliente' //Ruta Pública esta es la ruta que el usuari ve en el navegador
         this.middlewares()
         this.conectarDB()
         this.routes()

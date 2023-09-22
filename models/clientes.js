@@ -10,7 +10,7 @@ const ClienteSchema = ({
         required:[true, 'El nombre es obligatorio']
     },
     direccion:{
-        type: Number,
+        type: String,
         required:[true,'El precio de compra es obligatorio'] 
     },
     telefono:{
@@ -18,7 +18,7 @@ const ClienteSchema = ({
         required :[true,'El precio de venta es obligatorio'] 
     },
     correo:{
-        type: Number,
+        type: String,
         required:[true,'La cantidad es obligatoria'] 
     },
     estado:{

@@ -1,4 +1,4 @@
-const {response} = require('express');
+const { response } = require('express');
 
 //importacion de los metodos 
 const Cliente = require('../models/clientes');
@@ -6,7 +6,7 @@ const Cliente = require('../models/clientes');
 
 
 //consultar para obtener los usuarios en una variable de tipo asincrona 
-const clienteGet  = async (req, res = response) => {
+const clienteGet = async (req, res = response) => {
     // const {nombre} = req.query//desecstructuracion
 
     //consultar todos los uduarios
@@ -19,7 +19,7 @@ const clienteGet  = async (req, res = response) => {
 }
 
 
-const clientePost = async(req, res) => {
+const clientePost = async (req, res) => {
     let mensaje = 'Inserción Exitosa'
     const body = req.body //Captura de atributos
     try {
@@ -29,7 +29,7 @@ const clientePost = async(req, res) => {
         mensaje = error
         console.log(error)
     }
-        res.json({
+    res.json({
         msg: mensaje
     })
 }
@@ -37,15 +37,15 @@ const clientePost = async(req, res) => {
 
 
 //Modifcación
-const clientePut = async(req, res = response) => {
+const clientePut = async (req, res = response) => {
 
-    const {idCliente, nombre, direccion, telefono, correo, estado} = req.body
+    const { idCliente, nombre, direccion, telefono, correo, estado } = req.body
     let mensaje = 'Modificación exitosa'
-    try{
-         await Producto.updateMany({idCliente: idCliente}, 
-            { $set: { nombre: nombre, direccion: direccion, telefono:telefono,  correo: correo, estado:estado}})
+    try {
+        await Cliente.updateMany({ idCliente: idCliente },
+            { $set: { nombre: nombre, direccion: direccion, telefono: telefono, correo: correo, estado: estado } })
     }
-    catch(error){
+    catch (error) {
         mensaje = 'Se presentaron problemas en la modificación.'
     }
 
@@ -55,15 +55,15 @@ const clientePut = async(req, res = response) => {
 }
 
 //Eliminación
-const clienteDelete = async(req, res) => {
+const clienteDelete = async (req, res) => {
 
-    const {_id} = req.body
+    const { _id } = req.body
     let mensaje = 'La eliminiación se efectuó exitosamente.'
 
-    try{
-        const cliente = await Cliente.deleteOne({_id: _id})
+    try {
+        const cliente = await Cliente.deleteOne({ _id: _id })
     }
-    catch(error){
+    catch (error) {
         mensaje = 'Se presentaron problemas en la eliminación.'
     }
 
@@ -73,8 +73,8 @@ const clienteDelete = async(req, res) => {
 }
 
 module.exports = {
-    productoGet,
-    productoPost,
-    productoPut,
-    productoDelete
+    clienteGet,
+    clientePost,
+    clientePut,
+    clienteDelete
 }
